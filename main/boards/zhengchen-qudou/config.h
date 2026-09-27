@@ -1,0 +1,74 @@
+#ifndef _ZHENGCHEN_QUDOU_CONFIG_H_
+#define _ZHENGCHEN_QUDOU_CONFIG_H_
+
+#include <driver/gpio.h>
+
+#define AUDIO_INPUT_SAMPLE_RATE 24000
+#define AUDIO_OUTPUT_SAMPLE_RATE 24000
+#define AUDIO_INPUT_REFERENCE true
+
+#define AUDIO_I2S_GPIO_MCLK GPIO_NUM_38
+#define AUDIO_I2S_GPIO_WS GPIO_NUM_13
+#define AUDIO_I2S_GPIO_BCLK GPIO_NUM_14
+#define AUDIO_I2S_GPIO_DIN GPIO_NUM_12
+#define AUDIO_I2S_GPIO_DOUT GPIO_NUM_45
+
+#define AUDIO_CODEC_I2C_SDA_PIN GPIO_NUM_1
+#define AUDIO_CODEC_I2C_SCL_PIN GPIO_NUM_2
+#define AUDIO_CODEC_ES8311_ADDR ES8311_CODEC_DEFAULT_ADDR
+#define AUDIO_CODEC_ES7210_ADDR 0x82
+
+#define CAMERA_BUTTON_GPIO GPIO_NUM_46
+#define VIBRATION_BUTTON_GPIO GPIO_NUM_47
+#define POWER_BUTTON_GPIO GPIO_NUM_48
+
+#define DISPLAY_WIDTH 320
+#define DISPLAY_HEIGHT 240
+#define DISPLAY_MIRROR_X true
+#define DISPLAY_MIRROR_Y false
+#define DISPLAY_SWAP_XY true
+#define DISPLAY_OFFSET_X 0
+#define DISPLAY_OFFSET_Y 0
+#define DISPLAY_BACKLIGHT_PIN GPIO_NUM_42
+#define DISPLAY_BACKLIGHT_OUTPUT_INVERT true
+
+#define CAMERA_PIN_PWDN -1
+#define CAMERA_PIN_RESET -1
+#define CAMERA_PIN_XCLK 17
+#define CAMERA_PIN_SIOD 1
+#define CAMERA_PIN_SIOC 2
+#define CAMERA_PIN_D7 15
+#define CAMERA_PIN_D6 11
+#define CAMERA_PIN_D5 9
+#define CAMERA_PIN_D4 8
+#define CAMERA_PIN_D3 6
+#define CAMERA_PIN_D2 5
+#define CAMERA_PIN_D1 4
+#define CAMERA_PIN_D0 7
+#define CAMERA_PIN_VSYNC 21
+#define CAMERA_PIN_HREF 18
+#define CAMERA_PIN_PCLK 16
+#define CAMERA_XCLK_FREQ_HZ 24000000
+
+#define PCA9557_ADDRESS 0x19
+// The factory-derived sequence drives P0 high at expander setup, then low
+// immediately before panel initialization. Its board-level circuit may invert
+// the signal or use it as LCD power-enable rather than direct ST7789 RESET.
+#define PCA9557_LCD_CONTROL 0
+#define PCA9557_SPEAKER_ENABLE 1
+#define PCA9557_CAMERA_POWER 2
+#define PCA9557_VOLUME_UP 3
+#define PCA9557_VOLUME_DOWN 4
+#define PCA9557_POWER_OFF 5
+#define PCA9557_CHARGE_STATUS 6
+
+// Factory power-manager constants recovered from the v1.0.8 image.
+// ESP32-S3 ADC1 channel 2 is GPIO3; channel 9 is GPIO10.
+#define BATTERY_REF_ADC_CHANNEL ADC_CHANNEL_2
+#define BATTERY_LEVEL_ADC_CHANNEL ADC_CHANNEL_9
+#define BATTERY_REFERENCE_VOLTAGE 1.24f
+#define BATTERY_DIVIDER_RATIO 2.0f
+#define BATTERY_EMPTY_VOLTAGE 3.40f
+#define BATTERY_FULL_VOLTAGE 4.15f
+
+#endif
